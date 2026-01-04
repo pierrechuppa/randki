@@ -1,6 +1,7 @@
 /* ============================================
    SAMOTNIPOLSKA.PL - PREMIUM LANDING PAGE
    Mobile-First + Responsive
+   NAPRAWIONE MENU + AVATARY
 ============================================= */
 
 /* ===== CSS VARIABLES ===== */
@@ -196,7 +197,7 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(10, 10, 20, 0.9);
+    background: rgba(10, 10, 20, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -334,22 +335,33 @@ a {
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.1);
+    transition: var(--transition-fast);
 }
 
-/* Mobile Menu Overlay */
+.mobile-toggle:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== MOBILE MENU OVERLAY - NAPRAWIAM ===== */
 .mobile-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 10, 20, 0.98);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--dark-1);
     z-index: 999;
     opacity: 0;
     visibility: hidden;
     transition: var(--transition-fast);
+    overflow-y: auto;
 }
 
 .mobile-overlay.active {
@@ -359,7 +371,7 @@ a {
 
 .mobile-container {
     position: relative;
-    height: 100%;
+    min-height: 100%;
     padding: var(--space-xl);
     display: flex;
     flex-direction: column;
@@ -370,6 +382,8 @@ a {
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-logo {
@@ -381,10 +395,6 @@ a {
     color: var(--light);
 }
 
-.mobile-logo i {
-    color: var(--primary);
-}
-
 .mobile-close {
     background: none;
     border: none;
@@ -392,66 +402,101 @@ a {
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.1);
+    transition: var(--transition-fast);
+}
+
+.mobile-close:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .mobile-links {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
 }
 
 .mobile-link {
     display: flex;
     align-items: center;
     gap: var(--space-md);
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.03);
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-md);
     font-size: 1.1rem;
     font-weight: 500;
     transition: var(--transition-fast);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .mobile-link:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    border-color: rgba(255, 46, 99, 0.3);
 }
 
 .mobile-link i {
     width: 24px;
     text-align: center;
     color: var(--primary);
+    font-size: 1.2rem;
 }
 
 .mobile-cta {
     margin-top: auto;
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-cta-btn {
     display: block;
     background: var(--gradient-primary);
     color: var(--light);
-    padding: 1.25rem;
+    padding: 1.5rem;
     border-radius: var(--radius-md);
     text-align: center;
     font-weight: 600;
     font-size: 1.1rem;
     box-shadow: var(--shadow-glow);
     transition: var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.mobile-cta-btn:hover::before {
+    left: 100%;
+}
+
+.mobile-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 46, 99, 0.4);
 }
 
 .mobile-cta-btn small {
     display: block;
     font-size: 0.85rem;
     opacity: 0.9;
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
     font-weight: 400;
-}
-
-.mobile-cta-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(255, 46, 99, 0.4);
 }
 
 /* ===== HERO SECTION ===== */
@@ -835,6 +880,80 @@ a {
     animation: spin 2s linear infinite;
 }
 
+/* ===== AVATAR STYLES - PROFESJONALNE ===== */
+.profile-avatar, .profile-hot-avatar, .reviewer-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 1.5rem !important;
+    overflow: hidden;
+}
+
+/* Gradienty dla różnych inicjałów */
+.profile-avatar[data-initial="A"],
+.reviewer-avatar[data-initial="A"] { 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+}
+
+.profile-avatar[data-initial="M"],
+.reviewer-avatar[data-initial="M"] { 
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); 
+}
+
+.profile-avatar[data-initial="K"],
+.reviewer-avatar[data-initial="K"] { 
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); 
+}
+
+/* Dla hot profiles */
+.profile-hot-avatar[data-initial="K"] { 
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); 
+}
+
+.profile-hot-avatar[data-initial="M"] { 
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); 
+}
+
+.profile-hot-avatar[data-initial="A"] { 
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); 
+}
+
+.profile-hot-avatar[data-initial="O"] { 
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); 
+}
+
+/* Dla phone mockup */
+.profile-card .profile-avatar {
+    font-size: 1.8rem;
+}
+
+/* Dla hot profiles */
+.profile-hot-avatar {
+    font-size: 1.8rem;
+    position: relative;
+}
+
+.online-dot {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 12px;
+    height: 12px;
+    background: var(--success);
+    border-radius: 50%;
+    border: 2px solid var(--dark-2);
+}
+
+/* Dla reviews */
+.reviewer-avatar {
+    font-size: 1.3rem;
+}
+
 /* ===== QUIZ SECTION ===== */
 .quiz-section {
     padding: var(--space-xxl) 0;
@@ -1194,33 +1313,6 @@ a {
     margin-bottom: var(--space-md);
 }
 
-.profile-hot-avatar {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    position: relative;
-    flex-shrink: 0;
-    overflow: hidden;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-.online-dot {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 12px;
-    height: 12px;
-    background: var(--success);
-    border-radius: 50%;
-    border: 2px solid var(--dark-2);
-}
-
 .profile-hot-info h3 {
     font-size: 1.5rem;
     margin-bottom: 0.25rem;
@@ -1445,20 +1537,6 @@ a {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
-}
-
-.reviewer-avatar {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: var(--light);
-    font-size: 1.2rem;
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    flex-shrink: 0;
 }
 
 .reviewer-name {
@@ -1924,6 +2002,14 @@ a {
     .stats-grid-large {
         grid-template-columns: 1fr 1fr;
     }
+    
+    .mobile-toggle {
+        display: none;
+    }
+    
+    .nav-cta-mobile {
+        display: none;
+    }
 }
 
 /* Desktop */
@@ -1934,14 +2020,6 @@ a {
     
     .title-gradient {
         font-size: 4.5rem;
-    }
-    
-    .nav-cta-mobile {
-        display: none;
-    }
-    
-    .mobile-toggle {
-        display: none;
     }
     
     .nav-menu {
@@ -1960,7 +2038,7 @@ a {
     }
     
     .mobile-toggle {
-        display: block;
+        display: flex;
     }
     
     .nav-cta-mobile {
@@ -2068,6 +2146,14 @@ a {
         min-width: auto;
         width: 100%;
         padding: 1.25rem;
+    }
+    
+    .mobile-container {
+        padding: var(--space-lg);
+    }
+    
+    .mobile-link {
+        padding: 1rem;
     }
 }
 
