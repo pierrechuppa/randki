@@ -19,6 +19,18 @@ function startCountdown() {
     }, 1000);
 }
 
+// Funkcja resetująca countdown (dla linku w wiadomości o wygaśnięciu)
+function resetCountdown() {
+    document.querySelector('.countdown-bar').innerHTML = 
+        `<div class="container">
+            <i class="fas fa-bolt"></i>
+            <span>Oferta specjalna kończy się za: <span id="timer">05:00</span></span>
+            <i class="fas fa-bolt"></i>
+        </div>`;
+    startCountdown();
+    return false; // Zapobiega domyślnej akcji linku
+}
+
 // REDIRECT Z FORMULARZA
 function redirectToSignup() {
     const gender = document.getElementById('gender').value;
@@ -29,7 +41,7 @@ function redirectToSignup() {
     localStorage.setItem('preferences', JSON.stringify({ gender, lookingFor, age }));
     
     // Redirect do linku partnerskiego
-    window.open('https://radarkobiet.pl/link/3082/19099102', '_blank');
+    window.open('https://radarkobiet.pl/link/2821/19099102', '_blank');
     
     // Track conversion
     if (typeof fbq !== 'undefined') {
@@ -50,15 +62,20 @@ function showTestimonial(index) {
     testimonials.forEach(t => t.classList.remove('active'));
     dots.forEach(d => d.classList.remove('active'));
     
-    testimonials[index].classList.add('active');
-    dots[index].classList.add('active');
-    currentTestimonial = index;
+    if (testimonials[index]) {
+        testimonials[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentTestimonial = index;
+    }
 }
 
 // Auto-slide co 5 sekund
-setInterval(() => {
-    currentTestimonial = (currentTestimonial + 1) % 2;
-    showTestimonial(currentTestimonial);
+let slideInterval = setInterval(() => {
+    const totalSlides = document.querySelectorAll('.testimonial').length;
+    if (totalSlides > 0) {
+        currentTestimonial = (currentTestimonial + 1) % totalSlides;
+        showTestimonial(currentTestimonial);
+    }
 }, 5000);
 
 // EXIT INTENT - gdy użytkownik chce zamknąć stronę
@@ -68,7 +85,7 @@ document.addEventListener('mouseout', (e) => {
         if (!localStorage.getItem('exit_popup_shown')) {
             setTimeout(() => {
                 if (confirm("Czekaj! Otrzymaj 50% zniżki na pierwszy miesiąc!")) {
-                    window.open('https://radarkobiet.pl/link/3082/19099102', '_blank');
+                    window.open('https://radarkobiet.pl/link/2821/19099102', '_blank');
                 }
                 localStorage.setItem('exit_popup_shown', 'true');
             }, 500);
@@ -81,13 +98,16 @@ window.addEventListener('scroll', () => {
     const scrollPercentage = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
     
     if (scrollPercentage > 70 && !localStorage.getItem('scroll_popup_shown')) {
-        // Pokazuje floating CTA
-        document.querySelector('.floating-cta').style.display = 'block';
+        // Pokazuje floating CTA (jest już domyślnie widoczny, ale można dodać animację)
+        const floatingCta = document.querySelector('.floating-cta');
+        if (floatingCta) {
+            floatingCta.style.animation = 'pulse 1.5s 3';
+        }
         localStorage.setItem('scroll_popup_shown', 'true');
     }
 });
 
-// Start timer po załadowaniu strony
+// Inicjalizacja po załadowaniu strony
 document.addEventListener('DOMContentLoaded', () => {
     startCountdown();
     showTestimonial(0);
@@ -95,9 +115,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // Pobierz zapisane preferencje
     const savedPrefs = localStorage.getItem('preferences');
     if (savedPrefs) {
-        const prefs = JSON.parse(savedPrefs);
-        document.getElementById('gender').value = prefs.gender;
-        document.getElementById('looking-for').value = prefs.lookingFor;
-        document.getElementById('age').value = prefs.age;
+        try {
+            const prefs = JSON.parse(savedPrefs);
+            if (document.getElementById('gender')) document.getElementById('gender').value = prefs.gender || 'Mężczyzną';
+            if (document.getElementById('looking-for')) document.getElementById('looking-for').value = prefs.lookingFor || 'Kobiety';
+            if (document.getElementById('age')) document.getElementById('age').value = prefs.age || '26-35';
+        } catch(e) {
+            console.log("Błąd ładowania preferencji:", e);
+        }
     }
+    
+    // Płynne przewijanie dla anchor linków
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            
+            e.preventDefault();
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 });
+
+// Obsługa błędów ładowania obrazków
+document.addEventListener('error', function(e) {
+    if (e.target.tagName === 'IMG' && e.target.src.includes('pravatar.cc')) {
+        e.target.style.display = 'none';
+    }
+}, true);
