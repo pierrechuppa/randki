@@ -47,36 +47,6 @@ const CONFIG = {
     }
 };
 
-// ====== DOM ELEMENTS ======
-const DOM = {
-    // Preloader
-    preloader: null,
-    
-    // Navigation
-    mobileToggle: null,
-    mobileOverlay: null,
-    mobileClose: null,
-    
-    // Hero section
-    countdownTimer: null,
-    liveCounter: null,
-    
-    // Quiz section
-    quizContainer: null,
-    quizSteps: null,
-    quizOptions: null,
-    quizProgress: null,
-    quizResult: null,
-    profileType: null,
-    profileDesc: null,
-    
-    // Sticky CTA
-    stickyCTA: null,
-    
-    // Stat counters
-    statNumbers: null
-};
-
 // ====== STATE VARIABLES ======
 let state = {
     countdownTime: CONFIG.COUNTDOWN_TIME,
@@ -84,8 +54,7 @@ let state = {
     userAnswers: [],
     quizCompleted: false,
     userCount: CONFIG.START_USER_COUNT,
-    userCounterInterval: null,
-    notificationsInterval: null
+    userCounterInterval: null
 };
 
 // ====== INITIALIZATION ======
@@ -98,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeCountdown();
     initializeUserCounter();
     initializeQuiz();
-    initializeLiveNotifications();
     initializeHotProfiles();
     initializeStickyCTA();
     initializeAnimations();
@@ -109,47 +77,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ====== INITIALIZATION FUNCTIONS ======
 function initializeElements() {
-    DOM.preloader = document.querySelector('.preloader');
-    DOM.mobileToggle = document.querySelector('.mobile-toggle');
-    DOM.mobileOverlay = document.querySelector('.mobile-overlay');
-    DOM.mobileClose = document.querySelector('.mobile-close');
-    DOM.countdownTimer = document.getElementById('timer');
-    DOM.liveCounter = document.getElementById('liveUsers');
-    DOM.quizContainer = document.getElementById('loveQuiz');
-    DOM.quizSteps = document.querySelectorAll('.quiz-step');
-    DOM.quizOptions = document.querySelectorAll('.quiz-option');
-    DOM.quizProgress = document.getElementById('quizProgress');
-    DOM.quizResult = document.getElementById('quizResult');
-    DOM.profileType = document.getElementById('profileType');
-    DOM.profileDesc = document.getElementById('profileDescription');
-    DOM.stickyCTA = document.querySelector('.sticky-mobile-cta');
-    DOM.statNumbers = document.querySelectorAll('[data-count]');
+    // Preloader
+    state.preloader = document.querySelector('.preloader');
+    
+    // Navigation
+    state.mobileToggle = document.querySelector('.mobile-toggle');
+    state.mobileOverlay = document.querySelector('.mobile-overlay');
+    state.mobileClose = document.querySelector('.mobile-close');
+    
+    // Hero section
+    state.countdownTimer = document.getElementById('timer');
+    state.liveCounter = document.getElementById('liveUsers');
+    
+    // Quiz section
+    state.quizSteps = document.querySelectorAll('.quiz-step');
+    state.quizOptions = document.querySelectorAll('.quiz-option');
+    state.quizProgress = document.getElementById('quizProgress');
+    state.quizResult = document.getElementById('quizResult');
+    state.profileType = document.getElementById('profileType');
+    state.profileDesc = document.getElementById('profileDescription');
+    
+    // Sticky CTA
+    state.stickyCTA = document.querySelector('.sticky-mobile-cta');
+    
+    // Stat counters
+    state.statNumbers = document.querySelectorAll('[data-count]');
 }
 
 function initializePreloader() {
-    if (!DOM.preloader) return;
+    if (!state.preloader) return;
     
     // Hide preloader after 1.5 seconds
     setTimeout(() => {
-        DOM.preloader.classList.add('fade-out');
+        state.preloader.classList.add('fade-out');
         
         setTimeout(() => {
-            DOM.preloader.style.display = 'none';
+            state.preloader.style.display = 'none';
         }, 600);
     }, 1500);
 }
 
 function initializeNavigation() {
-    if (!DOM.mobileToggle || !DOM.mobileOverlay || !DOM.mobileClose) return;
+    if (!state.mobileToggle || !state.mobileOverlay || !state.mobileClose) return;
     
     // Mobile menu toggle
-    DOM.mobileToggle.addEventListener('click', () => {
-        DOM.mobileOverlay.classList.add('active');
+    state.mobileToggle.addEventListener('click', () => {
+        state.mobileOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     });
     
     // Mobile menu close
-    DOM.mobileClose.addEventListener('click', closeMobileMenu);
+    state.mobileClose.addEventListener('click', closeMobileMenu);
     
     // Close mobile menu when clicking on links
     document.querySelectorAll('.mobile-link').forEach(link => {
@@ -157,8 +135,8 @@ function initializeNavigation() {
     });
     
     // Close mobile menu when clicking outside
-    DOM.mobileOverlay.addEventListener('click', (e) => {
-        if (e.target === DOM.mobileOverlay) {
+    state.mobileOverlay.addEventListener('click', (e) => {
+        if (e.target === state.mobileOverlay) {
             closeMobileMenu();
         }
     });
@@ -184,7 +162,7 @@ function initializeNavigation() {
 }
 
 function initializeCountdown() {
-    if (!DOM.countdownTimer) return;
+    if (!state.countdownTimer) return;
     
     // Format time to MM:SS
     const formatTime = (seconds) => {
@@ -194,43 +172,40 @@ function initializeCountdown() {
     };
     
     // Update timer immediately
-    DOM.countdownTimer.textContent = formatTime(state.countdownTime);
+    state.countdownTimer.textContent = formatTime(state.countdownTime);
     
     // Start countdown
     state.countdownInterval = setInterval(() => {
         state.countdownTime--;
         
         // Update timer display
-        DOM.countdownTimer.textContent = formatTime(state.countdownTime);
+        state.countdownTimer.textContent = formatTime(state.countdownTime);
         
         // Change color when less than 1 minute
         if (state.countdownTime <= 60) {
-            DOM.countdownTimer.style.color = 'var(--primary)';
-            DOM.countdownTimer.classList.add('pulse-glow');
+            state.countdownTimer.style.color = 'var(--primary)';
+            state.countdownTimer.classList.add('pulse-glow');
         }
         
         // Stop at 0
         if (state.countdownTime <= 0) {
             clearInterval(state.countdownInterval);
-            DOM.countdownTimer.textContent = '00:00';
-            DOM.countdownTimer.style.color = 'var(--primary)';
-            
-            // Show warning/notification
-            showNotification('⏰ Czas oferty wygasł! Spróbuj jeszcze raz.');
+            state.countdownTimer.textContent = '00:00';
+            state.countdownTimer.style.color = 'var(--primary)';
         }
     }, 1000);
 }
 
 function initializeUserCounter() {
-    if (!DOM.liveCounter) return;
+    if (!state.liveCounter) return;
     
     // Format number with spaces
     const formatNumber = (num) => {
-        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        return num.toLocaleString('pl-PL');
     };
     
     // Initial display
-    DOM.liveCounter.textContent = formatNumber(state.userCount);
+    state.liveCounter.textContent = formatNumber(state.userCount);
     
     // Increment counter randomly (simulate live growth)
     state.userCounterInterval = setInterval(() => {
@@ -239,130 +214,28 @@ function initializeUserCounter() {
         state.userCount += increment;
         
         // Update display
-        DOM.liveCounter.textContent = formatNumber(state.userCount);
+        state.liveCounter.textContent = formatNumber(state.userCount);
         
         // Occasionally add a pulse effect
         if (Math.random() > 0.7) {
-            DOM.liveCounter.style.transform = 'scale(1.1)';
+            state.liveCounter.style.transform = 'scale(1.1)';
             setTimeout(() => {
-                DOM.liveCounter.style.transform = 'scale(1)';
+                state.liveCounter.style.transform = 'scale(1)';
             }, 300);
         }
     }, 3000); // Update every 3 seconds
 }
 
 function initializeQuiz() {
-    if (!DOM.quizContainer || DOM.quizOptions.length === 0) return;
+    if (state.quizOptions.length === 0) return;
     
     // Initialize first step
     showQuizStep(1);
     
     // Add click handlers to all options
-    DOM.quizOptions.forEach(option => {
+    state.quizOptions.forEach(option => {
         option.addEventListener('click', handleQuizOptionClick);
     });
-}
-
-function initializeLiveNotifications() {
-    const notificationsContainer = document.querySelector('.live-notifications');
-    if (!notificationsContainer) return;
-    
-    const notifications = [
-        {
-            name: 'Kasia, 28',
-            text: 'właśnie dołączyła z Warszawy',
-            time: 'przed chwilą',
-            gradient: 'linear-gradient(45deg, #667eea, #764ba2)'
-        },
-        {
-            name: 'Michał, 32',
-            text: 'szuka kogoś w Twojej okolicy',
-            time: '2 minuty temu',
-            gradient: 'linear-gradient(45deg, #4facfe, #00f2fe)'
-        },
-        {
-            name: 'Ania i Tomek',
-            text: 'poznali się wczoraj przez portal!',
-            time: '5 minut temu',
-            gradient: 'linear-gradient(45deg, #f093fb, #f5576c)'
-        },
-        {
-            name: 'Łukasz, 35',
-            text: 'właśnie założył profil',
-            time: '10 minut temu',
-            gradient: 'linear-gradient(45deg, #43e97b, #38f9d7)'
-        },
-        {
-            name: 'Magda, 29',
-            text: 'jest dopasowana w 96% do Twojego profilu',
-            time: '15 minut temu',
-            gradient: 'linear-gradient(45deg, #fa709a, #fee140)'
-        }
-    ];
-    
-    // Show container only on desktop
-    if (window.innerWidth >= 768) {
-        notificationsContainer.style.display = 'block';
-        
-        // Show first 3 notifications
-        showNotification(0);
-        setTimeout(() => showNotification(1), 2000);
-        setTimeout(() => showNotification(2), 4000);
-        
-        // Every 8 seconds new notification (rotation)
-        let currentIndex = 3;
-        state.notificationsInterval = setInterval(() => {
-            showNotification(currentIndex);
-            currentIndex = (currentIndex + 1) % notifications.length;
-        }, 8000);
-        
-        function showNotification(index) {
-            const notif = notifications[index];
-            
-            // Remove oldest notification if more than 3
-            const items = notificationsContainer.querySelectorAll('.notification-item');
-            if (items.length >= 3) {
-                items[0].remove();
-            }
-            
-            // Create new notification
-            const notificationHTML = `
-                <div class="notification-item">
-                    <div class="notification-avatar" style="background: ${notif.gradient};"></div>
-                    <div class="notification-content">
-                        <p><strong>${notif.name}</strong> ${notif.text}</p>
-                        <span class="notification-time">${notif.time}</span>
-                    </div>
-                </div>
-            `;
-            
-            // Add at the beginning (so new ones are on top)
-            notificationsContainer.insertAdjacentHTML('afterbegin', notificationHTML);
-            
-            // Remove after 15 seconds (unless user hovers)
-            const newNotif = notificationsContainer.querySelector('.notification-item:first-child');
-            setTimeout(() => {
-                if (newNotif && !newNotif.matches(':hover')) {
-                    newNotif.style.opacity = '0';
-                    newNotif.style.transform = 'translateX(100%)';
-                    setTimeout(() => {
-                        if (newNotif.parentNode) {
-                            newNotif.remove();
-                        }
-                    }, 500);
-                }
-            }, 15000);
-        }
-        
-        // Click notification = registration
-        notificationsContainer.addEventListener('click', function(e) {
-            const notificationItem = e.target.closest('.notification-item');
-            if (notificationItem) {
-                window.open(CONFIG.PARTNER_LINK, '_blank');
-                trackCTAClick({ currentTarget: { textContent: 'Live Notification Click' } });
-            }
-        });
-    }
 }
 
 function initializeHotProfiles() {
@@ -370,13 +243,8 @@ function initializeHotProfiles() {
     document.querySelectorAll('.view-profile-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            const link = this.getAttribute('data-link') || CONFIG.PARTNER_LINK;
-            window.open(link, '_blank');
-            trackCTAClick({ 
-                currentTarget: { 
-                    textContent: 'Hot Profile Click: ' + this.closest('.profile-card-hot').querySelector('h3').textContent 
-                } 
-            });
+            window.open(CONFIG.PARTNER_LINK, '_blank');
+            trackCTAClick('Hot Profile Click');
         });
     });
     
@@ -385,11 +253,7 @@ function initializeHotProfiles() {
         card.addEventListener('click', function(e) {
             if (!e.target.closest('.view-profile-btn')) {
                 window.open(CONFIG.PARTNER_LINK, '_blank');
-                trackCTAClick({ 
-                    currentTarget: { 
-                        textContent: 'Profile Card Click: ' + this.querySelector('h3').textContent 
-                    } 
-                });
+                trackCTAClick('Profile Card Click');
             }
         });
     });
@@ -410,7 +274,7 @@ function initializeHotProfiles() {
 }
 
 function initializeStickyCTA() {
-    if (!DOM.stickyCTA) return;
+    if (!state.stickyCTA) return;
     
     // Show sticky CTA after scrolling past hero
     window.addEventListener('scroll', () => {
@@ -418,16 +282,16 @@ function initializeStickyCTA() {
         const scrollPos = window.pageYOffset;
         
         if (scrollPos > heroHeight * 0.7) {
-            DOM.stickyCTA.classList.add('show');
+            state.stickyCTA.classList.add('show');
         } else {
-            DOM.stickyCTA.classList.remove('show');
+            state.stickyCTA.classList.remove('show');
         }
     });
 }
 
 function initializeAnimations() {
     // Animate stat counters on scroll
-    if (DOM.statNumbers.length > 0) {
+    if (state.statNumbers.length > 0) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -440,27 +304,16 @@ function initializeAnimations() {
             rootMargin: '0px 0px -50px 0px'
         });
         
-        DOM.statNumbers.forEach(stat => {
+        state.statNumbers.forEach(stat => {
             observer.observe(stat);
         });
-    }
-    
-    // Initialize GSAP animations if available
-    if (typeof gsap !== 'undefined') {
-        initializeGSAPAnimations();
     }
 }
 
 function initializeEventListeners() {
     // Track all CTA clicks (for analytics)
     document.querySelectorAll(`a[href="${CONFIG.PARTNER_LINK}"]`).forEach(link => {
-        link.addEventListener('click', trackCTAClick);
-    });
-    
-    // Prevent form submission (we don't have forms, but just in case)
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', (e) => e.preventDefault());
+        link.addEventListener('click', (e) => trackCTAClick('CTA Link Click'));
     });
     
     // Window resize handling
@@ -469,34 +322,23 @@ function initializeEventListeners() {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
             // Handle mobile/desktop changes
-            const notificationsContainer = document.querySelector('.live-notifications');
-            if (notificationsContainer) {
-                if (window.innerWidth >= 768) {
-                    notificationsContainer.style.display = 'block';
-                } else {
-                    notificationsContainer.style.display = 'none';
-                    if (state.notificationsInterval) {
-                        clearInterval(state.notificationsInterval);
-                    }
+            if (window.innerWidth >= 768) {
+                if (state.stickyCTA) {
+                    state.stickyCTA.style.display = 'block';
+                }
+            } else {
+                if (state.stickyCTA) {
+                    state.stickyCTA.style.display = 'none';
                 }
             }
         }, 250);
-    });
-    
-    // Page visibility handling
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            console.log('📱 Page hidden');
-        } else {
-            console.log('📱 Page visible again');
-        }
     });
 }
 
 // ====== QUIZ FUNCTIONS ======
 function showQuizStep(stepNumber) {
     // Hide all steps
-    DOM.quizSteps.forEach(step => {
+    state.quizSteps.forEach(step => {
         step.classList.remove('active');
     });
     
@@ -506,9 +348,9 @@ function showQuizStep(stepNumber) {
         stepToShow.classList.add('active');
         
         // Update progress bar
-        if (DOM.quizProgress) {
+        if (state.quizProgress) {
             const progressPercentage = (stepNumber / 3) * 100;
-            DOM.quizProgress.style.width = `${progressPercentage}%`;
+            state.quizProgress.style.width = `${progressPercentage}%`;
         }
         
         // Update progress text
@@ -554,7 +396,7 @@ function handleQuizOptionClick(e) {
 
 function showQuizResults() {
     // Hide quiz steps
-    DOM.quizSteps.forEach(step => {
+    state.quizSteps.forEach(step => {
         step.style.display = 'none';
     });
     
@@ -569,12 +411,12 @@ function showQuizResults() {
     const result = CONFIG.QUIZ_RESULTS[answerKey] || CONFIG.QUIZ_RESULTS.default;
     
     // Update result display
-    if (DOM.profileType) {
-        DOM.profileType.textContent = result.type;
+    if (state.profileType) {
+        state.profileType.textContent = result.type;
     }
     
-    if (DOM.profileDesc) {
-        DOM.profileDesc.textContent = result.desc;
+    if (state.profileDesc) {
+        state.profileDesc.textContent = result.desc;
     }
     
     // Update match percentage in result stats
@@ -584,12 +426,12 @@ function showQuizResults() {
     }
     
     // Show result section
-    if (DOM.quizResult) {
-        DOM.quizResult.style.display = 'block';
+    if (state.quizResult) {
+        state.quizResult.style.display = 'block';
         
         // Scroll to result
         setTimeout(() => {
-            DOM.quizResult.scrollIntoView({
+            state.quizResult.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center'
             });
@@ -598,9 +440,6 @@ function showQuizResults() {
     
     // Mark quiz as completed
     state.quizCompleted = true;
-    
-    // Track quiz completion (for analytics)
-    trackQuizCompletion(result.type, result.match);
 }
 
 // ====== ANIMATION FUNCTIONS ======
@@ -628,149 +467,18 @@ function animateCounter(element) {
     }, duration / steps);
 }
 
-function initializeGSAPAnimations() {
-    // Animate hero elements on load
-    gsap.from('.hero-title', {
-        duration: 1,
-        y: 30,
-        opacity: 0,
-        ease: 'power3.out',
-        delay: 0.5
-    });
-    
-    gsap.from('.hero-subtitle', {
-        duration: 1,
-        y: 20,
-        opacity: 0,
-        ease: 'power3.out',
-        delay: 0.8
-    });
-    
-    gsap.from('.stat-card', {
-        duration: 0.8,
-        y: 20,
-        opacity: 0,
-        stagger: 0.1,
-        ease: 'power3.out',
-        delay: 1.2
-    });
-    
-    gsap.from('.hero-cta', {
-        duration: 1,
-        y: 30,
-        opacity: 0,
-        ease: 'power3.out',
-        delay: 1.5
-    });
-    
-    // Animate quiz section on scroll
-    gsap.from('.quiz-section', {
-        scrollTrigger: {
-            trigger: '.quiz-section',
-            start: 'top 80%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse'
-        },
-        duration: 1,
-        y: 50,
-        opacity: 0,
-        ease: 'power3.out'
-    });
-    
-    // Animate hot profiles
-    gsap.from('.profile-card-hot', {
-        scrollTrigger: {
-            trigger: '.hot-profiles-section',
-            start: 'top 85%',
-            end: 'bottom 15%',
-            toggleActions: 'play none none reverse'
-        },
-        duration: 1,
-        y: 50,
-        opacity: 0,
-        stagger: 0.2,
-        ease: 'power3.out'
-    });
-    
-    // Animate reviews
-    gsap.from('.review-card', {
-        scrollTrigger: {
-            trigger: '.reviews-section',
-            start: 'top 85%',
-            end: 'bottom 15%',
-            toggleActions: 'play none none reverse'
-        },
-        duration: 1,
-        y: 50,
-        opacity: 0,
-        stagger: 0.2,
-        ease: 'power3.out'
-    });
-}
-
 // ====== UTILITY FUNCTIONS ======
 function closeMobileMenu() {
-    if (DOM.mobileOverlay) {
-        DOM.mobileOverlay.classList.remove('active');
+    if (state.mobileOverlay) {
+        state.mobileOverlay.classList.remove('active');
         document.body.style.overflow = '';
     }
 }
 
-function showNotification(message) {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.innerHTML = `
-        <div class="notification-content">
-            <i class="fas fa-info-circle"></i>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    // Add styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--dark-3);
-        color: var(--light);
-        padding: 1rem 1.5rem;
-        border-radius: var(--radius-md);
-        border-left: 4px solid var(--primary);
-        box-shadow: var(--shadow-lg);
-        z-index: 9999;
-        transform: translateX(120%);
-        transition: transform 0.3s ease;
-        max-width: 300px;
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Remove after 5 seconds
-    setTimeout(() => {
-        notification.style.transform = 'translateX(120%)';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 5000);
-}
-
 // ====== ANALYTICS / TRACKING FUNCTIONS ======
-function trackCTAClick(e) {
-    const buttonText = e.currentTarget.textContent.trim().substring(0, 50);
-    const buttonType = e.currentTarget.classList.contains('hero-cta-btn') ? 'hero' :
-                      e.currentTarget.classList.contains('nav-cta-btn') ? 'nav' :
-                      e.currentTarget.classList.contains('result-cta-btn') ? 'quiz_result' :
-                      e.currentTarget.classList.contains('sticky-mobile-cta') ? 'sticky' : 'other';
-    
+function trackCTAClick(source) {
     console.log('📊 CTA Click:', {
-        type: buttonType,
-        text: buttonText,
+        source: source,
         timestamp: new Date().toISOString(),
         quizCompleted: state.quizCompleted
     });
@@ -779,64 +487,13 @@ function trackCTAClick(e) {
     if (typeof gtag !== 'undefined') {
         gtag('event', 'click', {
             'event_category': 'CTA',
-            'event_label': `${buttonType}: ${buttonText}`,
+            'event_label': source,
             'value': state.quizCompleted ? 2 : 1
-        });
-    }
-    
-    // Facebook Pixel (if fbq is available)
-    if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead', {
-            content_name: buttonText,
-            content_category: buttonType
-        });
-    }
-}
-
-function trackQuizCompletion(profileType, matchScore) {
-    console.log('📊 Quiz Completed:', {
-        profileType: profileType,
-        matchScore: matchScore,
-        answers: state.userAnswers.join(''),
-        timestamp: new Date().toISOString()
-    });
-    
-    // Google Analytics
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'quiz_complete', {
-            'event_category': 'Engagement',
-            'event_label': profileType,
-            'value': matchScore
         });
     }
 }
 
 // ====== PERFORMANCE OPTIMIZATIONS ======
-// Lazy load images (for when you add real photos)
-document.addEventListener('DOMContentLoaded', function() {
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.getAttribute('data-src');
-                    img.removeAttribute('data-src');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-        
-        lazyImages.forEach(img => imageObserver.observe(img));
-    } else {
-        // Fallback for older browsers
-        lazyImages.forEach(img => {
-            img.src = img.getAttribute('data-src');
-        });
-    }
-});
-
 // Cleanup on page unload
 window.addEventListener('beforeunload', () => {
     if (state.countdownInterval) {
@@ -847,19 +504,7 @@ window.addEventListener('beforeunload', () => {
         clearInterval(state.userCounterInterval);
     }
     
-    if (state.notificationsInterval) {
-        clearInterval(state.notificationsInterval);
-    }
-    
     console.log('🧹 Cleaning up intervals...');
-});
-
-// ====== ERROR HANDLING ======
-window.addEventListener('error', function(e) {
-    console.error('❌ JavaScript Error:', e.message, e.filename, e.lineno);
-    
-    // You can send errors to your error tracking service here
-    // Example: Sentry, LogRocket, etc.
 });
 
 // ====== DEBUGGING HELPERS ======
@@ -872,21 +517,21 @@ if (typeof window !== 'undefined') {
             state.quizCompleted = false;
             
             // Reset quiz UI
-            DOM.quizSteps.forEach(step => {
+            state.quizSteps.forEach(step => {
                 step.style.display = 'block';
                 step.classList.remove('active');
             });
             
             // Reset options
-            DOM.quizOptions.forEach(option => {
+            state.quizOptions.forEach(option => {
                 option.classList.remove('active');
                 option.style.opacity = '1';
                 option.style.pointerEvents = 'auto';
             });
             
             // Hide result
-            if (DOM.quizResult) {
-                DOM.quizResult.style.display = 'none';
+            if (state.quizResult) {
+                state.quizResult.style.display = 'none';
             }
             
             // Show first step
@@ -899,21 +544,6 @@ if (typeof window !== 'undefined') {
             }
             
             console.log('🔄 Quiz reset complete!');
-        },
-        simulateClick: () => {
-            // Simulate clicking through quiz for testing
-            const options = document.querySelectorAll('.quiz-option');
-            if (options.length >= 3) {
-                options[0].click();
-                setTimeout(() => {
-                    const step2Options = document.querySelectorAll('.quiz-step[data-step="2"] .quiz-option');
-                    if (step2Options.length > 0) step2Options[0].click();
-                }, 700);
-                setTimeout(() => {
-                    const step3Options = document.querySelectorAll('.quiz-step[data-step="3"] .quiz-option');
-                    if (step3Options.length > 0) step3Options[0].click();
-                }, 1400);
-            }
         }
     };
 }
