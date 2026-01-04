@@ -4,206 +4,268 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SamotniPolska.pl | Portal Randkowy Nr 1 w Polsce</title>
-    <meta name="description" content="Dołącz do elitarnej społeczności singli. Inteligentne dopasowania, 100% bezpieczeństwo, najwyższa skuteczność.">
-    <!-- Premium Meta Tags -->
-    <meta property="og:title" content="SamotniPolska.pl - Znajdź Miłość">
-    <meta property="og:description" content="Najbardziej ekskluzywny portal randkowy w Polsce">
+    <meta name="description" content="Dołącz do elitarnej społeczności singli. AI dopasowanie, 100% bezpieczeństwo, najwyższa skuteczność.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="SamotniPolska.pl - Znajdź Miłość Dziś">
+    <meta property="og:description" content="Najbardziej ekskluzywny portal randkowy w Polsce. Darmowa rejestracja z 3 miesiącami Premium.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <meta property="og:url" content="https://samotnipolska.pl">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="website">
     
-    <!-- Premium CSS & Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+    
+    <!-- Google Analytics Placeholder -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
-<body class="premium-body">
-    <!-- PRELOADER (Premium touch) -->
+<body>
+    <!-- ===== PRELOADER ===== -->
     <div class="preloader">
         <div class="preloader-content">
             <div class="heart-loader">
                 <i class="fas fa-heart"></i>
             </div>
-            <p>Ładowanie najlepszych matchy...</p>
+            <p>Łączymy serca...</p>
         </div>
     </div>
 
-    <!-- ANIMATED BACKGROUND ELEMENTS -->
-    <div class="bg-elements">
-        <div class="floating-heart" style="--i:1"></div>
-        <div class="floating-heart" style="--i:2"></div>
-        <div class="floating-heart" style="--i:3"></div>
-        <div class="floating-heart" style="--i:4"></div>
-        <div class="floating-heart" style="--i:5"></div>
+    <!-- ===== ANIMATED BACKGROUND ===== -->
+    <div class="bg-animation">
+        <div class="heart h1"></div>
+        <div class="heart h2"></div>
+        <div class="heart h3"></div>
+        <div class="heart h4"></div>
+        <div class="heart h5"></div>
     </div>
 
-    <!-- PREMIUM NAVBAR -->
-    <nav class="premium-nav">
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar">
         <div class="nav-container">
-            <!-- Logo with animation -->
-            <div class="nav-logo animate__animated animate__fadeInLeft">
+            <!-- Logo -->
+            <div class="nav-logo">
                 <div class="logo-icon">
-                    <i class="fas fa-heart-pulse"></i>
+                    <i class="fas fa-heart"></i>
                 </div>
                 <div class="logo-text">
-                    <span class="logo-main">Samotni</span>
-                    <span class="logo-accent">Polska</span>
-                    <span class="logo-tld">.pl</span>
+                    <span class="logo-main">Miłość</span>
+                    <span class="logo-accent">365</span>
+                    <span class="logo-dot">.pl</span>
                 </div>
             </div>
 
-            <!-- Desktop Navigation -->
-            <div class="nav-menu desktop-menu">
-                <a href="#hero" class="nav-link"><i class="fas fa-home"></i> Start</a>
-                <a href="#features" class="nav-link"><i class="fas fa-star"></i> Dlaczego My?</a>
-                <a href="#success" class="nav-link"><i class="fas fa-trophy"></i> Sukcesy</a>
-                <a href="#pricing" class="nav-link"><i class="fas fa-crown"></i> Premium</a>
-                <a href="#contact" class="nav-link"><i class="fas fa-headset"></i> Kontakt</a>
+            <!-- Desktop Menu -->
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Start</span>
+                </a>
+                <a href="#how" class="nav-link">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Jak działa?</span>
+                </a>
+                <a href="#stats" class="nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Statystyki</span>
+                </a>
+                <a href="#testimonial" class="nav-link">
+                    <i class="fas fa-heart"></i>
+                    <span>Historie</span>
+                </a>
+                <a href="https://radarkobiet.pl/link/2821/19099102" target="_blank" class="nav-cta-mobile">
+                    <i class="fas fa-rocket"></i>
+                    <span>Dołącz za darmo</span>
+                </a>
             </div>
 
-            <!-- CTA Buttons -->
-            <div class="nav-actions">
-                <a href="https://radarkobiet.pl/link/2821/19099102" class="nav-cta-secondary">
-                    <i class="fas fa-sign-in-alt"></i> Zaloguj
-                </a>
-                <a href="https://radarkobiet.pl/link/2821/19099102" class="nav-cta-primary pulse-glow">
-                    <i class="fas fa-user-plus"></i> Dołącz za darmo
-                </a>
-                
-                <!-- Mobile menu toggle -->
-                <button class="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+            <!-- CTA Button (Desktop) -->
+            <a href="https://radarkobiet.pl/link/2821/19099102" target="_blank" class="nav-cta-btn pulse-glow">
+                <i class="fas fa-bolt"></i>
+                <span>Zarejestruj się</span>
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-toggle" aria-label="Otwórz menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
 
-        <!-- Mobile Menu -->
-        <div class="mobile-menu-overlay">
-            <div class="mobile-menu-container">
-                <button class="mobile-menu-close">
-                    <i class="fas fa-times"></i>
-                </button>
-                <div class="mobile-menu-content">
-                    <a href="#hero" class="mobile-nav-link"><i class="fas fa-home"></i> Start</a>
-                    <a href="#features" class="mobile-nav-link"><i class="fas fa-star"></i> Dlaczego My?</a>
-                    <a href="#success" class="mobile-nav-link"><i class="fas fa-trophy"></i> Sukcesy</a>
-                    <a href="#pricing" class="mobile-nav-link"><i class="fas fa-crown"></i> Premium</a>
-                    <a href="#contact" class="mobile-nav-link"><i class="fas fa-headset"></i> Kontakt</a>
-                    <div class="mobile-cta-buttons">
-                        <a href="https://radarkobiet.pl/link/2821/19099102" class="mobile-cta-btn">Zaloguj się</a>
-                        <a href="https://radarkobiet.pl/link/2821/19099102" class="mobile-cta-btn primary">Dołącz za darmo</a>
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-overlay">
+            <div class="mobile-container">
+                <div class="mobile-header">
+                    <div class="mobile-logo">
+                        <i class="fas fa-heart"></i>
+                        <span>Miłość365.pl</span>
                     </div>
+                    <button class="mobile-close" aria-label="Zamknij menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="mobile-links">
+                    <a href="#home" class="mobile-link">
+                        <i class="fas fa-home"></i>
+                        <span>Start</span>
+                    </a>
+                    <a href="#how" class="mobile-link">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Jak działa?</span>
+                    </a>
+                    <a href="#stats" class="mobile-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Statystyki</span>
+                    </a>
+                    <a href="#testimonial" class="mobile-link">
+                        <i class="fas fa-heart"></i>
+                        <span>Historie miłości</span>
+                    </a>
+                </div>
+                
+                <div class="mobile-cta">
+                    <a href="https://radarkobiet.pl/link/2821/19099102" target="_blank" class="mobile-cta-btn">
+                        <i class="fas fa-rocket"></i>
+                        <span>Rozpocznij za darmo</span>
+                        <small>3 miesiące Premium w prezencie</small>
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION - PREMIUM -->
-    <section id="hero" class="premium-hero">
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero-section">
         <div class="hero-container">
-            <!-- Animated Badge -->
-            <div class="premium-badge animate__animated animate__pulse animate__infinite">
-                <i class="fas fa-shield-check"></i>
-                <span>GWARANCJA BEZPIECZEŃSTWA & ZWROTU</span>
+            <!-- Premium Badge -->
+            <div class="premium-badge">
+                <div class="badge-content">
+                    <i class="fas fa-crown"></i>
+                    <span>OFERTA LIMITOWANA</span>
+                    <div class="countdown-timer" id="countdown">
+                        <i class="fas fa-clock"></i>
+                        <span id="timer">04:59</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Main Hero Content -->
-            <div class="hero-content-wrapper">
-                <div class="hero-text-content">
-                    <h1 class="hero-main-title animate__animated animate__fadeInUp">
-                        <span class="text-gradient">Przestań szukać</span><br>
-                        <span class="text-outline">Zacznij żyć</span>
+            <!-- Hero Content -->
+            <div class="hero-grid">
+                <!-- Text Column -->
+                <div class="hero-text-col">
+                    <h1 class="hero-title">
+                        <span class="title-line">Twoja miłość</span>
+                        <span class="title-gradient">czeka</span>
+                        <span class="title-line">na Ciebie</span>
                     </h1>
                     
-                    <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
-                        Dołącz do <span class="highlight-count">287,543</span> singli, którzy już znaleźli miłość dzięki 
-                        najinteligentniejszemu portalowi randkowemu w Polsce.
+                    <p class="hero-subtitle">
+                        <span class="live-counter-wrapper">
+                            <i class="fas fa-users"></i>
+                            <span class="live-counter" id="liveUsers">287,543</span> osób online
+                        </span>
+                        - dołącz do największej społeczności singli w Polsce.
                     </p>
 
-                    <!-- Stats Grid -->
-                    <div class="stats-grid animate__animated animate__fadeInUp animate__delay-2s">
+                    <!-- Stats -->
+                    <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-number" data-count="287543">287,543</div>
-                            <div class="stat-label">Aktywnych użytkowników</div>
+                            <div class="stat-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number" data-count="1274">1,274</div>
+                                <div class="stat-label">nowych par miesięcznie</div>
+                            </div>
                         </div>
+                        
                         <div class="stat-card">
-                            <div class="stat-number" data-count="92">92%</div>
-                            <div class="stat-label">Satysfakcji klientów</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number" data-count="1274">1,274</div>
-                            <div class="stat-label">Nowych par miesięcznie</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">24h</div>
-                            <div class="stat-label">Wsparcie techniczne</div>
+                            <div class="stat-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number" data-count="92">92%</div>
+                                <div class="stat-label">satysfakcji użytkowników</div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Main CTA -->
-                    <div class="hero-cta-container animate__animated animate__fadeInUp animate__delay-3s">
-                        <a href="https://radarkobiet.pl/link/2821/19099102" class="hero-main-cta mega-pulse">
-                            <div class="cta-content">
+                    <div class="hero-cta">
+                        <a href="https://radarkobiet.pl/link/2821/19099102" target="_blank" class="hero-cta-btn mega-pulse">
+                            <div class="cta-inner">
                                 <div class="cta-icon">
-                                    <i class="fas fa-crown"></i>
+                                    <i class="fas fa-gem"></i>
                                 </div>
                                 <div class="cta-text">
-                                    <div class="cta-title">ROZPOCZNIJ PRZYGODĘ</div>
-                                    <div class="cta-subtitle">Otrzymaj 3 miesiące Premium GRATIS!</div>
+                                    <div class="cta-main">ROZPOCZNIJ ZA DARMO</div>
+                                    <div class="cta-sub">Odbierz 3 miesiące Premium + prezent</div>
                                 </div>
                                 <div class="cta-arrow">
-                                    <i class="fas fa-arrow-right-long"></i>
+                                    <i class="fas fa-arrow-right"></i>
                                 </div>
                             </div>
                         </a>
                         
                         <p class="cta-note">
-                            <i class="fas fa-check-circle"></i> Rejestracja w 45 sekund • 
-                            <i class="fas fa-lock"></i> 100% Anonimowość • 
-                            <i class="fas fa-gem"></i> Pierwszy miesiąc za darmo
+                            <i class="fas fa-shield-alt"></i> Rejestracja 100% darmowa • 
+                            <i class="fas fa-lock"></i> Anonimowość gwarantowana • 
+                            <i class="fas fa-clock"></i> 45 sekund
                         </p>
                     </div>
                 </div>
 
-                <!-- Hero Visual -->
-                <div class="hero-visual animate__animated animate__fadeInRight">
+                <!-- Visual Column -->
+                <div class="hero-visual-col">
                     <div class="visual-container">
-                        <!-- Animated phone mockup -->
+                        <!-- Animated Phone -->
                         <div class="phone-mockup">
+                            <div class="phone-notch"></div>
                             <div class="phone-screen">
-                                <div class="screen-content">
-                                    <!-- Matching animation -->
-                                    <div class="matching-animation">
-                                        <div class="profile-card match-1">
-                                            <div class="profile-img"></div>
-                                            <div class="match-percent">96%</div>
-                                        </div>
-                                        <div class="profile-card match-2">
-                                            <div class="profile-img"></div>
-                                            <div class="match-percent">88%</div>
-                                        </div>
-                                        <div class="profile-card match-3">
-                                            <div class="profile-img"></div>
-                                            <div class="match-percent">91%</div>
-                                        </div>
+                                <!-- Matching Animation -->
+                                <div class="matching-animation">
+                                    <div class="profile-card profile-1">
+                                        <div class="profile-avatar"></div>
+                                        <div class="match-badge">96%</div>
                                     </div>
-                                    <div class="match-text">Dopasowujemy idealnych partnerów</div>
+                                    <div class="profile-card profile-2">
+                                        <div class="profile-avatar"></div>
+                                        <div class="match-badge">88%</div>
+                                    </div>
+                                    <div class="profile-card profile-3">
+                                        <div class="profile-avatar"></div>
+                                        <div class="match-badge">91%</div>
+                                    </div>
+                                </div>
+                                <div class="matching-text">
+                                    <i class="fas fa-sync-alt fa-spin"></i>
+                                    Dopasowujemy idealne pary...
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Floating elements -->
+
+                        <!-- Floating Testimonial -->
                         <div class="floating-testimonial">
                             <div class="testimonial-bubble">
-                                "Poznałam miłość życia po 2 tygodniach!"
-                                <div class="testimonial-author">- Anna, 28 lat</div>
+                                <div class="bubble-content">
+                                    <i class="fas fa-quote-left"></i>
+                                    <p>Poznałam miłość życia po 3 dniach! Dziękuję!</p>
+                                    <div class="bubble-author">
+                                        <strong>Kasia, 29 lat</strong>
+                                        <span>Warszawa</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -212,219 +274,281 @@
         </div>
     </section>
 
-    <!-- QUICK SIGNUP FORM -->
-    <section class="quick-signup-section">
-        <div class="signup-container">
-            <div class="signup-header">
-                <h2><i class="fas fa-bolt"></i> SZYBKA REJESTRACJA</h2>
-                <p>Wypełnij formularz i zacznij poznawać ludzi już dziś</p>
-            </div>
-            
-            <form class="premium-signup-form" id="quickSignupForm">
-                <div class="form-grid">
-                    <div class="form-group floating-label">
-                        <input type="text" id="name" required>
-                        <label for="name"><i class="fas fa-user"></i> Twoje imię</label>
-                    </div>
-                    
-                    <div class="form-group floating-label">
-                        <input type="email" id="email" required>
-                        <label for="email"><i class="fas fa-envelope"></i> Adres email</label>
-                    </div>
-                    
-                    <div class="form-group floating-label">
-                        <select id="gender" required>
-                            <option value=""></option>
-                            <option value="male">Mężczyzna</option>
-                            <option value="female">Kobieta</option>
-                            <option value="other">Inna</option>
-                        </select>
-                        <label for="gender"><i class="fas fa-venus-mars"></i> Płeć</label>
-                    </div>
-                    
-                    <div class="form-group floating-label">
-                        <select id="lookingFor" required>
-                            <option value=""></option>
-                            <option value="female">Kobietę</option>
-                            <option value="male">Mężczyznę</option>
-                            <option value="both">Nie ma znaczenia</option>
-                        </select>
-                        <label for="lookingFor"><i class="fas fa-search"></i> Szukam</label>
-                    </div>
-                </div>
-                
-                <div class="form-submit">
-                    <button type="submit" class="form-submit-btn">
-                        <i class="fas fa-rocket"></i> ZAŁÓŻ KONTO ZA DARMO
-                    </button>
-                    <p class="form-note">
-                        Klikając "Założ konto", akceptujesz 
-                        <a href="#">Regulamin</a> i <a href="#">Politykę prywatności</a>
-                    </p>
-                </div>
-            </form>
-            
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>SSL Secure</span>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-lock"></i>
-                    <span>Dane chronione</span>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Zweryfikowani użytkownicy</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURES SECTION -->
-    <section id="features" class="features-section">
+    <!-- ===== QUICK QUIZ SECTION ===== -->
+    <section id="how" class="quiz-section">
         <div class="section-container">
             <div class="section-header">
-                <h2 class="section-title">Dlaczego <span class="text-gradient">SamotniPolska</span>?</h2>
-                <p class="section-subtitle">Najbardziej zaawansowana technologia randkowa w Polsce</p>
+                <h2 class="section-title">
+                    <i class="fas fa-brain"></i>
+                    <span>Odkryj swój <span class="text-gradient">typ miłości</span></span>
+                </h2>
+                <p class="section-subtitle">
+                    Odpowiedz na 3 szybkie pytania, a pokażemy Ci, jakiego partnera szukasz.
+                </p>
             </div>
-            
-            <div class="features-grid">
-                <div class="feature-card hover-lift">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
+
+            <div class="quiz-container" id="loveQuiz">
+                <!-- Step 1 -->
+                <div class="quiz-step active" data-step="1">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <h3 class="step-question">Twój idealny wieczór to...</h3>
                     </div>
-                    <h3>AI Dopasowanie</h3>
-                    <p>Nasz algorytm analizuje ponad 200 parametrów osobowości dla idealnego matcha</p>
-                    <div class="feature-badge">NOWOŚĆ</div>
+                    
+                    <div class="step-options">
+                        <button class="quiz-option" data-value="a">
+                            <div class="option-icon">
+                                <i class="fas fa-umbrella-beach"></i>
+                            </div>
+                            <div class="option-text">
+                                <strong>Romantyczna kolacja</strong>
+                                <span>Przy świecach, rozmowy do rana</span>
+                            </div>
+                        </button>
+                        
+                        <button class="quiz-option" data-value="b">
+                            <div class="option-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div class="option-text">
+                                <strong>Wspólna rozrywka</strong>
+                                <span>Gry, filmy, spontaniczne wyjścia</span>
+                            </div>
+                        </button>
+                        
+                        <button class="quiz-option" data-value="c">
+                            <div class="option-icon">
+                                <i class="fas fa-hiking"></i>
+                            </div>
+                            <div class="option-text">
+                                <strong>Aktywny wypoczynek</strong>
+                                <span>Sport, natura, przygoda</span>
+                            </div>
+                        </button>
+                        
+                        <button class="quiz-option" data-value="d">
+                            <div class="option-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="option-text">
+                                <strong>Spotkanie ze znajomymi</strong>
+                                <span>Impreza, koncert, tłum ludzi</span>
+                            </div>
+                        </button>
+                    </div>
                 </div>
-                
-                <div class="feature-card hover-lift">
-                    <div class="feature-icon">
-                        <i class="fas fa-video"></i>
+
+                <!-- Step 2 (hidden initially) -->
+                <div class="quiz-step" data-step="2">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <h3 class="step-question">W związku najbardziej cenisz...</h3>
                     </div>
-                    <h3>Czaty Wideo</h3>
-                    <p>Bezpieczne rozmowy wideo z wbudowanymi filtrami i efektami</p>
+                    
+                    <div class="step-options">
+                        <button class="quiz-option" data-value="a">
+                            <div class="option-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="option-text">
+                                <strong>Głęboką więź emocjonalną</strong>
+                                <span>Zrozumienie, wsparcie, rozmowy</span>
+                            </div>
+                        </button>
+                        
+                        <button class="quiz-option" data-value="b">
+                            <div class="option-icon">
+                                <i class="fas fa-laugh"></i>
+                            </div>
+                            <div class="option-text">
+                                <strong>Śmiech i zabawę</strong>
+                                <span>Lekkość, żarty, dobra energia</span>
+                            </div>
+                        </button>
+                        
+                        <button class="quiz-option" data-value="c">
+                            <div class="option-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="option-text">
+                                <strong>Wzajemny szacunek</strong>
+                                <span>Zaufanie, lojalność, bezpieczeństwo</span>
+                            </div>
+                        </button>
+                        
+                        <button class="quiz-option" data-value="d">
+                            <div class="option-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="option-text">
+                                <strong>Wspólny rozwój</strong>
+                                <span>Ambicje, cele, pasje</span>
+                            </div>
+                        </button>
+                    </div>
                 </div>
-                
-                <div class="feature-card hover-lift">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
+
+                <!-- Step 3 (hidden initially) -->
+                <div class="quiz-step" data-step="3">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <h3 class="step-question">Twoja supermoc w związku to...</h3>
                     </div>
-                    <h3>Aplikacja Mobilna</h3>
-                    <p>Nr 1 w AppStore i Google Play w kategorii randkowej</p>
+                    
+                    <div class="step-options">
+                        <button class="quiz-option" data-value="a">
+                            <div class="option-icon">
+                                <i class="fas fa-ear-listen"></i>
+                            </div>
+                            <div class="option-text">
+                                <strong>Słuchanie i zrozumienie</strong>
+                                <span>Jestem oparciem w trudnych chwilach</span>
+                            </div>
+                        </button>
+                        
+                        <button class="quiz-option" data-value="b">
+                            <div class="option-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="option-text">
+                                <strong>Kreatywność i pomysły</strong>
+                                <span>Zawsze wymyślę coś ciekawego</span>
+                            </div>
+                        </button>
+                        
+                        <button class="quiz-option" data-value="c">
+                            <div class="option-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <div class="option-text">
+                                <strong>Wsparcie praktyczne</strong>
+                                <span>Zawsze pomogę, załatwię, rozwiążę</span>
+                            </div>
+                        </button>
+                        
+                        <button class="quiz-option" data-value="d">
+                            <div class="option-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="option-text">
+                                <strong>Namiętność i energia</strong>
+                                <span>Wnoszę iskrę i pasję do związku</span>
+                            </div>
+                        </button>
+                    </div>
                 </div>
-                
-                <div class="feature-card hover-lift">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-shield"></i>
+
+                <!-- Quiz Result (hidden initially) -->
+                <div class="quiz-result" id="quizResult">
+                    <div class="result-header">
+                        <div class="result-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="result-title">
+                            Twój profil miłości:
+                            <span class="result-type" id="profileType">Romantyczny Poszukiwacz</span>
+                        </h3>
                     </div>
-                    <h3>Weryfikacja Profili</h3>
-                    <p>Każdy profil jest ręcznie weryfikowany przez nasz zespół</p>
+                    
+                    <div class="result-content">
+                        <p class="result-description" id="profileDescription">
+                            Jesteś wrażliwą osobą, która ceni głębokie rozmowy i autentyczność. 
+                            Szukasz partnera, z którym stworzysz bezpieczną, pełną zrozumienia relację.
+                        </p>
+                        
+                        <div class="result-stats">
+                            <div class="result-stat">
+                                <div class="stat-value">
+                                    <i class="fas fa-heart"></i>
+                                    <span>87%</span>
+                                </div>
+                                <div class="stat-label">Dopasowanie do społeczności</div>
+                            </div>
+                            
+                            <div class="result-stat">
+                                <div class="stat-value">
+                                    <i class="fas fa-users"></i>
+                                    <span>142</span>
+                                </div>
+                                <div class="stat-label">Oczekujące profile</div>
+                            </div>
+                            
+                            <div class="result-stat">
+                                <div class="stat-value">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>24h</span>
+                                </div>
+                                <div class="stat-label">Do pierwszej rozmowy</div>
+                            </div>
+                        </div>
+                        
+                        <!-- FINAL CTA WITH YOUR LINK -->
+                        <div class="result-cta">
+                            <a href="https://radarkobiet.pl/link/2821/19099102" target="_blank" class="result-cta-btn mega-pulse">
+                                <div class="cta-content">
+                                    <i class="fas fa-rocket"></i>
+                                    <div class="cta-text">
+                                        <div class="cta-main">POZNAJ SWOJE DOPASOWANIA!</div>
+                                        <div class="cta-sub">Kliknij, aby założyć konto i zobaczyć profile</div>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <p class="result-note">
+                                <i class="fas fa-shield-alt"></i> Rejestracja zajmuje 45 sekund. 
+                                <strong>Otrzymasz 3 miesiące Premium w prezencie.</strong>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="feature-card hover-lift">
-                    <div class="feature-icon">
-                        <i class="fas fa-calendar-check"></i>
+
+                <!-- Progress Bar -->
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="quizProgress"></div>
                     </div>
-                    <h3>Organizator Randek</h3>
-                    <p>Automatyczne sugerowanie miejsc na spotkania w Twojej okolicy</p>
-                </div>
-                
-                <div class="feature-card hover-lift">
-                    <div class="feature-icon">
-                        <i class="fas fa-gamepad"></i>
+                    <div class="progress-text">
+                        <span class="current-step">1</span> z <span class="total-steps">3</span>
                     </div>
-                    <h3>Gry Randkowe</h3>
-                    <p>Przełam lody poprzez interaktywne gry i quizy</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SUCCESS STORIES -->
-    <section id="success" class="success-section">
+    <!-- ===== STATS SECTION ===== -->
+    <section id="stats" class="stats-section">
         <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">Prawdziwe <span class="text-gradient">Historie Miłości</span></h2>
-                <p class="section-subtitle">Tysiące par, które zaczęły swoją historię u nas</p>
-            </div>
-            
-            <div class="success-stories">
-                <!-- Story 1 -->
-                <div class="story-card">
-                    <div class="story-media">
-                        <div class="story-images">
-                            <div class="image-circle couple-1"></div>
-                        </div>
-                        <div class="story-quote">
-                            <i class="fas fa-quote-left"></i>
-                        </div>
+            <div class="stats-grid">
+                <div class="stat-card-large">
+                    <div class="stat-icon-large">
+                        <i class="fas fa-heart-circle-plus"></i>
                     </div>
-                    <div class="story-content">
-                        <h3>Anna & Krzysztof</h3>
-                        <div class="story-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Warszawa</span>
-                            <span><i class="fas fa-heart"></i> Razem 2 lata</span>
-                        </div>
-                        <p class="story-text">
-                            "Po nieudanych związkach myślałam, że już nie znajdę nikogo. 
-                            Dzięki SamotniPolska poznałam Krzysztofa - nasze profile były 
-                            dopasowane w 97%. Dziś planujemy ślub!"
+                    <div class="stat-content-large">
+                        <div class="stat-number-large">2,847</div>
+                        <div class="stat-label-large">ZAREJCZONYCH PAR</div>
+                        <p class="stat-description">
+                            Tylko w ostatnim roku dzięki naszej platformie
                         </p>
-                        <div class="story-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
                     </div>
                 </div>
                 
-                <!-- Story 2 -->
-                <div class="story-card">
-                    <div class="story-media">
-                        <div class="story-images">
-                            <div class="image-circle couple-2"></div>
-                        </div>
-                        <div class="story-quote">
-                            <i class="fas fa-quote-left"></i>
-                        </div>
+                <div class="stat-card-large">
+                    <div class="stat-icon-large">
+                        <i class="fas fa-ring"></i>
                     </div>
-                    <div class="story-content">
-                        <h3>Magda & Tomasz</h3>
-                        <div class="story-meta">
-                            <span><i class="fas fa-map-marker-alt"></i> Kraków</span>
-                            <span><i class="fas fa-heart"></i> Razem 1 rok</span>
-                        </div>
-                        <p class="story-text">
-                            "Jako singiel 40+ byłem sceptyczny wobec portali randkowych. 
-                            Jak się myliłem! Dzięki zaawansowanym filtrom poznałem Magdę - 
-                            osobę o dokładnie takich samych zainteresowaniach."
+                    <div class="stat-content-large">
+                        <div class="stat-number-large">187</div>
+                        <div class="stat-label-large">ŚLUBÓW MIESIĘCZNIE</div>
+                        <p class="stat-description">
+                            Średnia z ostatnich 6 miesięcy
                         </p>
-                        <div class="story-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Stats Banner -->
-                <div class="stats-banner">
-                    <div class="stat-item">
-                        <div class="stat-number">2,847</div>
-                        <div class="stat-label">ZAREZCZONYCH PAR</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">187</div>
-                        <div class="stat-label">ŚLUBÓW MIESIĘCZNIE</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">4.8/5</div>
-                        <div class="stat-label">OCENA W APLIKACJI</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FINAL CTA SECTION -->
+    <!-- ===== FINAL CTA SECTION ===== -->
     <section class="final-cta-section">
         <div class="cta-container">
             <div class="cta-background">
@@ -434,18 +558,20 @@
             <div class="cta-content">
                 <h2 class="cta-title">Gotowy na zmianę?</h2>
                 <p class="cta-subtitle">
-                    Dołącz do największej społeczności singli w Polsce. 
+                    Dołącz do tysięcy singli, którzy już znaleźli miłość. 
                     Twoja druga połówka czeka.
                 </p>
                 
                 <div class="cta-buttons">
-                    <a href="https://radarkobiet.pl/link/2821/19099102" class="cta-btn primary mega-pulse">
+                    <a href="https://radarkobiet.pl/link/2821/19099102" target="_blank" class="cta-btn-primary mega-pulse">
                         <i class="fas fa-crown"></i>
                         ROZPOCZNIJ ZA DARMO
+                        <small>3 miesiące Premium w prezencie</small>
                     </a>
-                    <a href="https://radarkobiet.pl/link/2821/19099102" class="cta-btn secondary">
+                    
+                    <a href="#quiz" class="cta-btn-secondary">
                         <i class="fas fa-play-circle"></i>
-                        ZOBACZ DEMO
+                        WYKONAJ TEST DOPASOWANIA
                     </a>
                 </div>
                 
@@ -467,57 +593,37 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="premium-footer">
+    <!-- ===== STICKY MOBILE CTA ===== -->
+    <a href="https://radarkobiet.pl/link/2821/19099102" target="_blank" class="sticky-mobile-cta">
+        <div class="sticky-content">
+            <i class="fas fa-bolt"></i>
+            <div class="sticky-text">
+                <strong>ROZPOCZNIJ ZA DARMO</strong>
+                <span>3 miesiące Premium w prezencie</span>
+            </div>
+            <i class="fas fa-arrow-right"></i>
+        </div>
+    </a>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="main-footer">
         <div class="footer-container">
-            <div class="footer-main">
+            <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <i class="fas fa-heart-pulse"></i>
-                        <div>
-                            <span class="logo-main">Samotni</span>
-                            <span class="logo-accent">Polska</span>
-                            <span class="logo-tld">.pl</span>
-                        </div>
+                        <i class="fas fa-heart"></i>
+                        <span>Miłość365.pl</span>
                     </div>
                     <p class="footer-tagline">
-                        Łączymy serca od 2018 roku. Najbardziej zaufany portal randkowy w Polsce.
+                        Łączymy serca od 2018. Najbardziej zaufany portal randkowy w Polsce.
                     </p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    </div>
                 </div>
                 
                 <div class="footer-links">
-                    <div class="link-column">
-                        <h4>Portal</h4>
-                        <a href="#">O nas</a>
-                        <a href="#">Jak to działa?</a>
-                        <a href="#">Cennik</a>
-                        <a href="#">Aplikacja mobilna</a>
-                        <a href="#">Kariera</a>
-                    </div>
-                    
-                    <div class="link-column">
-                        <h4>Pomoc</h4>
-                        <a href="#">Centrum pomocy</a>
-                        <a href="#">Bezpieczeństwo</a>
-                        <a href="#">FAQ</a>
-                        <a href="#">Kontakt</a>
-                        <a href="#">Wsparcie</a>
-                    </div>
-                    
-                    <div class="link-column">
-                        <h4>Legal</h4>
-                        <a href="#">Regulamin</a>
-                        <a href="#">Polityka prywatności</a>
-                        <a href="#">Cookies</a>
-                        <a href="#">RODO</a>
-                        <a href="#">Warunki użytkowania</a>
-                    </div>
+                    <a href="#" class="footer-link">Regulamin</a>
+                    <a href="#" class="footer-link">Polityka prywatności</a>
+                    <a href="#" class="footer-link">Cookies</a>
+                    <a href="#" class="footer-link">Kontakt</a>
                 </div>
             </div>
             
@@ -527,11 +633,10 @@
                     <i class="fab fa-cc-mastercard"></i>
                     <i class="fab fa-cc-paypal"></i>
                     <i class="fab fa-cc-apple-pay"></i>
-                    <i class="fab fa-cc-amazon-pay"></i>
                 </div>
                 
                 <div class="copyright">
-                    <p>&copy; 2018-2024 SamotniPolska.pl Wszelkie prawa zastrzeżone.</p>
+                    <p>© 2018-2026 SamotniPolska.pl. Wszelkie prawa zastrzeżone.</p>
                     <p class="disclaimer">
                         SamotniPolska.pl to portal randkowy dla dorosłych. Korzystanie z serwisu oznacza akceptację regulaminu.
                     </p>
@@ -540,20 +645,11 @@
         </div>
     </footer>
 
-    <!-- FLOATING WHATSAPP -->
-    <a href="https://api.whatsapp.com/send?phone=48123456789&text=Cześć%20SamotniPolska!" 
-       class="floating-whatsapp" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- BACK TO TOP -->
-    <button class="back-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- SCRIPTS -->
+    <!-- ===== SCRIPTS ===== -->
+    <script src="script.js"></script>
+    
+    <!-- External Libraries (optional, for advanced animations) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
