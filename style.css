@@ -581,5 +581,325 @@ body {
     
     .final-main {
         font-size: 22px;
+/* ========== RESPONSYWNOŚĆ DLA TELEFONÓW ========== */
+
+@media (max-width: 768px) {
+    /* OGÓLNE */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* HEADER */
+    .header .container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 0;
+    }
+    
+    .logo {
+        font-size: 20px;
+    }
+    
+    .logo i {
+        font-size: 24px;
+    }
+    
+    /* COUNTDOWN */
+    .countdown-bar {
+        font-size: 12px;
+        padding: 8px 0;
+    }
+    
+    /* HERO */
+    .hero {
+        padding: 40px 0 30px;
+    }
+    
+    .hero h1 {
+        font-size: 28px !important;
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+    
+    .hero h2 {
+        font-size: 20px !important;
+        line-height: 1.4;
+        margin-bottom: 20px;
+    }
+    
+    /* SOCIAL PROOF */
+    .social-proof {
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .proof-item {
+        padding: 10px 20px;
+        font-size: 14px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* MEGA CTA */
+    .btn-mega {
+        padding: 20px 15px !important;
+        font-size: 18px !important;
+        margin: 20px auto;
+        border-radius: 12px;
+    }
+    
+    .mega-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .mega-content i {
+        font-size: 24px;
+    }
+    
+    .cta-note {
+        font-size: 12px;
+        padding: 0 10px;
+    }
+    
+    /* MINI FORM */
+    .mini-form {
+        padding: 20px 15px;
+        margin-top: 30px;
+    }
+    
+    .mini-form h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+    
+    .form-grid select {
+        padding: 10px;
+        font-size: 15px;
+    }
+    
+    .form-grid button {
+        margin-top: 10px;
+        padding: 15px !important;
+        font-size: 16px;
+    }
+    
+    /* FEATURES */
+    .features {
+        padding: 50px 0;
+    }
+    
+    .features h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .feature-card {
+        padding: 25px 20px;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .feature-icon i {
+        font-size: 28px;
+    }
+    
+    /* TESTIMONIALS */
+    .testimonials {
+        padding: 50px 0;
+    }
+    
+    .testimonials h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .testimonial-card {
+        padding: 25px 20px;
+    }
+    
+    .author {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .author img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* FINAL CTA */
+    .final-cta {
+        padding: 50px 0;
+    }
+    
+    .cta-box h2 {
+        font-size: 26px;
+        line-height: 1.3;
+    }
+    
+    .cta-box p {
+        font-size: 16px;
+    }
+    
+    .cta-features {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn-mega-final {
+        padding: 20px 15px !important;
+        font-size: 18px !important;
+        margin: 20px auto;
+    }
+    
+    .final-cta-content {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .final-main {
+        font-size: 20px !important;
+    }
+    
+    .final-sub {
+        font-size: 14px;
+    }
+    
+    /* FLOATING CTA */
+    .floating-cta {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .btn-floating {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    /* FOOTER */
+    .footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* BADGE */
+    .badge {
+        font-size: 12px;
+        padding: 8px 15px;
+        margin-bottom: 20px;
+    }
+    
+    /* STATS */
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .stat-item {
+        padding: 15px;
+    }
+    
+    .stat-number {
+        font-size: 24px;
+    }
+    
+    .stat-text {
+        font-size: 14px;
+    }
+}
+
+/* DLA BARDZO MAŁYCH TELEFONÓW */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 24px !important;
+    }
+    
+    .hero h2 {
+        font-size: 18px !important;
+    }
+    
+    .btn-mega, .btn-mega-final {
+        font-size: 16px !important;
+        padding: 18px 10px !important;
+    }
+    
+    .proof-item {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+    
+    .floating-cta {
+        bottom: 5px;
+        right: 5px;
+    }
+    
+    .btn-floating {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+}
+
+/* POPRAWA SPECJALNIE DLA TELEFONU */
+@media (max-width: 768px) {
+    /* Naprawa szerokości */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* Naprawa tekstu */
+    h1, h2, h3 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Naprawa przycisków */
+    .btn {
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+    
+    /* Naprawa obrazków */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Ukryj niepotrzebne elementy na telefonie */
+    .hero-image .testimonial-slider {
+        display: none;
     }
 }
