@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SamotniPolska.pl - Znajdź Miłość w 2026!</title>
+    <meta name="description" content="Największy portal randkowy dla singli w Polsce. 85% naszych użytkowników znajduje partnera w ciągu 1 miesięca!">
+    <!-- Facebook Pixel (dodaj swój) -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'TWÓJ_PIXEL_ID'); // ZMIENIĆ
+        fbq('track', 'PageView');
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- COUNTDOWN TIMER - URGENCY -->
+    <div class="countdown-bar">
+        <div class="container">
+            <i class="fas fa-bolt"></i>
+            <span id="countdown">Oferta specjalna kończy się za: <span id="timer">05:00</span></span>
+            <i class="fas fa-bolt"></i>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-heart"></i>
+                <h1>Samotni<span>Polska</span>.pl</h1>
+            </div>
+            <div class="header-cta">
+                <a href="https://radarkobiet.pl/link/3082/19099102" class="btn btn-primary pulse" target="_blank" onclick="fbq('track', 'Lead')">
+                    <i class="fas fa-user-plus"></i> ZAREJESTRUJ SIĘ
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO - GŁÓWNY CTA -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <i class="fas fa-check-circle"></i> GWARANCJA BEZPIECZEŃSTWA
+                </div>
+                
+                <h1>Przestań być <span class="highlight">samotny</span></h1>
+                <h2>Znajdź miłość wśród <span class="highlight">285,742</span> singli w Polsce</h2>
+                
+                <div class="social-proof">
+                    <div class="proof-item">
+                        <i class="fas fa-users"></i>
+                        <span>285K+ aktywnych profili</span>
+                    </div>
+                    <div class="proof-item">
+                        <i class="fas fa-heart"></i>
+                        <span>1,247 nowych par w tym miesiącu</span>
+                    </div>
+                    <div class="proof-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>100% zweryfikowanych użytkowników</span>
+                    </div>
+                </div>
+
+                <!-- MEGA CTA BUTTON -->
+                <div class="mega-cta">
+                    <a href="https://radarkobiet.pl/link/3082/19099102" class="btn btn-mega" target="_blank" onclick="fbq('track', 'InitiateCheckout')">
+                        <div class="mega-content">
+                            <i class="fas fa-crown"></i>
+                            <div>
+                                <div class="mega-title">ZAREJESTRUJ SIĘ ZA DARMO</div>
+                                <div class="mega-subtitle">Otrzymaj 50% więcej matchy przez pierwszy miesiąc!</div>
+                            </div>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <p class="cta-note"><i class="fas fa-lock"></i> Rejestracja zajmuje 30 sekund • Bez ukrytych opłat</p>
+                </div>
+
+                <!-- MINI-FORM -->
+                <div class="mini-form">
+                    <h3><i class="fas fa-bolt"></i> SZYBKI START:</h3>
+                    <div class="form-grid">
+                        <div>
+                            <label>Jesteś:</label>
+                            <select id="gender">
+                                <option>Mężczyzną</option>
+                                <option>Kobietą</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Szukasz:</label>
+                            <select id="looking-for">
+                                <option>Kobiety</option>
+                                <option>Mężczyzny</option>
+                                <option>Obojga</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Wiek:</label>
+                            <select id="age">
+                                <option>18-25</option>
+                                <option>26-35</option>
+                                <option>36-45</option>
+                                <option>46+</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-secondary" onclick="redirectToSignup()">
+                            ZNAJDŹ PARTNERA
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="testimonial-slider">
+                    <div class="testimonial active">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Anna, 28 lat">
+                        <div class="testimonial-content">
+                            <p>"Po 2 tygodniach poznałam Marcina. Dziękuję SamotniPolska!"</p>
+                            <span class="author">Anna, 28 lat</span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Krzysztof, 32 lata">
+                        <div class="testimonial-content">
+                            <p>"Najlepsza decyzja w moim życiu. Znalazłem miłość po 3 miesiącach."</p>
+                            <span class="author">Krzysztof, 32 lata</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="container">
+            <h2>Dlaczego <span class="highlight">SamotniPolska</span>?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Inteligentne Dopasowanie</h3>
+                    <p>Nasz algorytm AI analizuje 127 parametrów dla idealnego matcha</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>100% Bezpieczeństwo</h3>
+                    <p>Wszystkie profile weryfikowane, zero fałszywych kont</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Aplikacja Mobilna</h3>
+                    <p>Nr 1 w Polsce w kategorii randkowej</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Czaty Wideo</h3>
+                    <p>Poznaj się lepiej przed spotkaniem</p>
+                </div>
+            </div>
+            
+            <!-- SECOND CTA -->
+            <div class="center-cta">
+                <a href="https://radarkobiet.pl/link/3082/19099102" class="btn btn-primary btn-large" target="_blank">
+                    <i class="fas fa-rocket"></i> ROZPOCZNIJ PRZYGODĘ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Prawdziwe historie miłosne</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Po 2 nieudanych związkach myślałam, że nie znajdę nikogo. Dzięki SamotniPolska poznałam wspaniałego mężczyznę. Zaręczyny za 3 miesiące!"</p>
+                    <div class="author">
+                        <img src="https://i.pravatar.cc/60?img=8" alt="Magda">
+                        <div>
+                            <strong>Magda, 31 lat</strong>
+                            <span>Poznań</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Jako singiel 40+ myślałem, że portale randkowe to nie dla mnie. Jak się myliłem! Poznałem wspaniałą kobietę, planujemy wspólną przyszłość."</p>
+                    <div class="author">
+                        <img src="https://i.pravatar.cc/60?img=11" alt="Tomasz">
+                        <div>
+                            <strong>Tomasz, 42 lata</strong>
+                            <span>Warszawa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Mieszkam w małym mieście, trudno było kogoś poznać. Dzięki temu portalowi znalazłam miłość z sąsiedniego miasta. Dziękuję!"</p>
+                    <div class="author">
+                        <img src="https://i.pravatar.cc/60?img=13" alt="Karolina">
+                        <div>
+                            <strong>Karolina, 26 lat</strong>
+                            <span>Radom</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Twoja historia miłosna czeka na napisanie</h2>
+                <p>Dołącz do <strong>285,742</strong> singli, którzy już szukają miłości</p>
+                
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <i class="fas fa-check"></i> Załóż konto w 30 sekund
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-check"></i> Pierwszy miesiąc za darmo
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-check"></i> Gwarancja dopasowania
+                    </div>
+                </div>
+
+                <!-- FINAL MEGA CTA -->
+                <a href="https://radarkobiet.pl/link/3082/19099102" class="btn btn-mega-final" target="_blank" onclick="fbq('track', 'CompleteRegistration')">
+                    <div class="final-cta-content">
+                        <div class="final-main">ZACZNIJ TERAZ - 100% DARMO</div>
+                        <div class="final-sub">Oferta specjalna • Tylko dla nowych użytkowników</div>
+                    </div>
+                </a>
+
+                <div class="guarantee">
+                    <i class="fas fa-lock"></i> <strong>Gwarancja satysfakcji</strong> lub zwrot pieniędzy w ciągu 14 dni
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-heart"></i>
+                        <h3>Samotni<span>Polska</span>.pl</h3>
+                    </div>
+                    <p>Największy i najbardziej zaufany portal randkowy w Polsce</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Informacje</h4>
+                    <ul>
+                        <li><a href="#">O nas</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Kariera</a></li>
+                        <li><a href="#">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Pomoc</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Bezpieczeństwo</a></li>
+                        <li><a href="#">Regulamin</a></li>
+                        <li><a href="#">Polityka prywatności</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SamotniPolska.pl - Wszelkie prawa zastrzeżone</p>
+                <p>Stworzone z ❤️ dla samotnych serc w Polsce</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING CTA - zawsze widoczny -->
+    <div class="floating-cta">
+        <a href="https://radarkobiet.pl/link/3082/19099102" class="btn btn-floating" target="_blank">
+            <i class="fas fa-heart"></i> ZNAJDŹ MIŁOŚĆ
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
