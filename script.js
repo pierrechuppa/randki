@@ -1,5 +1,5 @@
 /**
- * MIŁOŚĆ365.PL - Premium Landing Page
+ * SAMOTNIPOLSKA.PL - Premium Landing Page
  * Konwersja zoptymalizowana pod link partnerski
  * Mobile & Desktop ready
  */
@@ -84,12 +84,13 @@ let state = {
     userAnswers: [],
     quizCompleted: false,
     userCount: CONFIG.START_USER_COUNT,
-    userCounterInterval: null
+    userCounterInterval: null,
+    notificationsInterval: null
 };
 
 // ====== INITIALIZATION ======
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Miłość365.pl - Initializing...');
+    console.log('🚀 SamotniPolska.pl - Initializing...');
     
     initializeElements();
     initializePreloader();
@@ -97,6 +98,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeCountdown();
     initializeUserCounter();
     initializeQuiz();
+    initializeLiveNotifications();
+    initializeHotProfiles();
     initializeStickyCTA();
     initializeAnimations();
     initializeEventListeners();
@@ -260,6 +263,152 @@ function initializeQuiz() {
     });
 }
 
+function initializeLiveNotifications() {
+    const notificationsContainer = document.querySelector('.live-notifications');
+    if (!notificationsContainer) return;
+    
+    const notifications = [
+        {
+            name: 'Kasia, 28',
+            text: 'właśnie dołączyła z Warszawy',
+            time: 'przed chwilą',
+            gradient: 'linear-gradient(45deg, #667eea, #764ba2)'
+        },
+        {
+            name: 'Michał, 32',
+            text: 'szuka kogoś w Twojej okolicy',
+            time: '2 minuty temu',
+            gradient: 'linear-gradient(45deg, #4facfe, #00f2fe)'
+        },
+        {
+            name: 'Ania i Tomek',
+            text: 'poznali się wczoraj przez portal!',
+            time: '5 minut temu',
+            gradient: 'linear-gradient(45deg, #f093fb, #f5576c)'
+        },
+        {
+            name: 'Łukasz, 35',
+            text: 'właśnie założył profil',
+            time: '10 minut temu',
+            gradient: 'linear-gradient(45deg, #43e97b, #38f9d7)'
+        },
+        {
+            name: 'Magda, 29',
+            text: 'jest dopasowana w 96% do Twojego profilu',
+            time: '15 minut temu',
+            gradient: 'linear-gradient(45deg, #fa709a, #fee140)'
+        }
+    ];
+    
+    // Show container only on desktop
+    if (window.innerWidth >= 768) {
+        notificationsContainer.style.display = 'block';
+        
+        // Show first 3 notifications
+        showNotification(0);
+        setTimeout(() => showNotification(1), 2000);
+        setTimeout(() => showNotification(2), 4000);
+        
+        // Every 8 seconds new notification (rotation)
+        let currentIndex = 3;
+        state.notificationsInterval = setInterval(() => {
+            showNotification(currentIndex);
+            currentIndex = (currentIndex + 1) % notifications.length;
+        }, 8000);
+        
+        function showNotification(index) {
+            const notif = notifications[index];
+            
+            // Remove oldest notification if more than 3
+            const items = notificationsContainer.querySelectorAll('.notification-item');
+            if (items.length >= 3) {
+                items[0].remove();
+            }
+            
+            // Create new notification
+            const notificationHTML = `
+                <div class="notification-item">
+                    <div class="notification-avatar" style="background: ${notif.gradient};"></div>
+                    <div class="notification-content">
+                        <p><strong>${notif.name}</strong> ${notif.text}</p>
+                        <span class="notification-time">${notif.time}</span>
+                    </div>
+                </div>
+            `;
+            
+            // Add at the beginning (so new ones are on top)
+            notificationsContainer.insertAdjacentHTML('afterbegin', notificationHTML);
+            
+            // Remove after 15 seconds (unless user hovers)
+            const newNotif = notificationsContainer.querySelector('.notification-item:first-child');
+            setTimeout(() => {
+                if (newNotif && !newNotif.matches(':hover')) {
+                    newNotif.style.opacity = '0';
+                    newNotif.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        if (newNotif.parentNode) {
+                            newNotif.remove();
+                        }
+                    }, 500);
+                }
+            }, 15000);
+        }
+        
+        // Click notification = registration
+        notificationsContainer.addEventListener('click', function(e) {
+            const notificationItem = e.target.closest('.notification-item');
+            if (notificationItem) {
+                window.open(CONFIG.PARTNER_LINK, '_blank');
+                trackCTAClick({ currentTarget: { textContent: 'Live Notification Click' } });
+            }
+        });
+    }
+}
+
+function initializeHotProfiles() {
+    // Click on "View Profile" = opens partner link
+    document.querySelectorAll('.view-profile-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const link = this.getAttribute('data-link') || CONFIG.PARTNER_LINK;
+            window.open(link, '_blank');
+            trackCTAClick({ 
+                currentTarget: { 
+                    textContent: 'Hot Profile Click: ' + this.closest('.profile-card-hot').querySelector('h3').textContent 
+                } 
+            });
+        });
+    });
+    
+    // Click on profile card = also opens link
+    document.querySelectorAll('.profile-card-hot').forEach(card => {
+        card.addEventListener('click', function(e) {
+            if (!e.target.closest('.view-profile-btn')) {
+                window.open(CONFIG.PARTNER_LINK, '_blank');
+                trackCTAClick({ 
+                    currentTarget: { 
+                        textContent: 'Profile Card Click: ' + this.querySelector('h3').textContent 
+                    } 
+                });
+            }
+        });
+    });
+    
+    // Every 30 seconds update "km from you" (randomization)
+    setInterval(() => {
+        document.querySelectorAll('.profile-distance').forEach(el => {
+            const currentText = el.textContent;
+            const newDistance = Math.floor(Math.random() * 10) + 1;
+            el.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${newDistance} km od Ciebie`;
+            
+            // After 2 seconds return to original
+            setTimeout(() => {
+                el.innerHTML = currentText;
+            }, 2000);
+        });
+    }, 30000);
+}
+
 function initializeStickyCTA() {
     if (!DOM.stickyCTA) return;
     
@@ -319,7 +468,18 @@ function initializeEventListeners() {
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
-            // Recalculate anything if needed
+            // Handle mobile/desktop changes
+            const notificationsContainer = document.querySelector('.live-notifications');
+            if (notificationsContainer) {
+                if (window.innerWidth >= 768) {
+                    notificationsContainer.style.display = 'block';
+                } else {
+                    notificationsContainer.style.display = 'none';
+                    if (state.notificationsInterval) {
+                        clearInterval(state.notificationsInterval);
+                    }
+                }
+            }
         }, 250);
     });
     
@@ -368,28 +528,28 @@ function handleQuizOptionClick(e) {
     
     // Visual feedback
     option.classList.add('active');
-    option.style.pointerEvents = 'none';
     
-    // Disable other options in this step
+    // Get current step
     const currentStep = document.querySelector('.quiz-step.active');
-    const otherOptions = currentStep.querySelectorAll('.quiz-option');
-    otherOptions.forEach(opt => {
+    const currentStepNum = parseInt(currentStep.getAttribute('data-step'));
+    
+    // Disable all options in current step
+    const currentOptions = currentStep.querySelectorAll('.quiz-option');
+    currentOptions.forEach(opt => {
+        opt.style.pointerEvents = 'none';
         if (opt !== option) {
             opt.style.opacity = '0.5';
-            opt.style.pointerEvents = 'none';
         }
     });
     
     // Move to next step or show results
     setTimeout(() => {
-        const currentStepNum = parseInt(currentStep.getAttribute('data-step'));
-        
         if (currentStepNum < 3) {
             showQuizStep(currentStepNum + 1);
         } else {
             showQuizResults();
         }
-    }, 500);
+    }, 600);
 }
 
 function showQuizResults() {
@@ -517,10 +677,25 @@ function initializeGSAPAnimations() {
         ease: 'power3.out'
     });
     
-    // Animate stats section
-    gsap.from('.stat-card-large', {
+    // Animate hot profiles
+    gsap.from('.profile-card-hot', {
         scrollTrigger: {
-            trigger: '.stats-section',
+            trigger: '.hot-profiles-section',
+            start: 'top 85%',
+            end: 'bottom 15%',
+            toggleActions: 'play none none reverse'
+        },
+        duration: 1,
+        y: 50,
+        opacity: 0,
+        stagger: 0.2,
+        ease: 'power3.out'
+    });
+    
+    // Animate reviews
+    gsap.from('.review-card', {
+        scrollTrigger: {
+            trigger: '.reviews-section',
             start: 'top 85%',
             end: 'bottom 15%',
             toggleActions: 'play none none reverse'
@@ -609,7 +784,13 @@ function trackCTAClick(e) {
         });
     }
     
-    // You can add more tracking here (Facebook Pixel, etc.)
+    // Facebook Pixel (if fbq is available)
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+            content_name: buttonText,
+            content_category: buttonType
+        });
+    }
 }
 
 function trackQuizCompletion(profileType, matchScore) {
@@ -631,7 +812,7 @@ function trackQuizCompletion(profileType, matchScore) {
 }
 
 // ====== PERFORMANCE OPTIMIZATIONS ======
-// Lazy load images
+// Lazy load images (for when you add real photos)
 document.addEventListener('DOMContentLoaded', function() {
     const lazyImages = document.querySelectorAll('img[data-src]');
     
@@ -666,6 +847,10 @@ window.addEventListener('beforeunload', () => {
         clearInterval(state.userCounterInterval);
     }
     
+    if (state.notificationsInterval) {
+        clearInterval(state.notificationsInterval);
+    }
+    
     console.log('🧹 Cleaning up intervals...');
 });
 
@@ -677,9 +862,9 @@ window.addEventListener('error', function(e) {
     // Example: Sentry, LogRocket, etc.
 });
 
-// ====== EXPORT FOR DEBUGGING (optional) ======
+// ====== DEBUGGING HELPERS ======
 if (typeof window !== 'undefined') {
-    window.__MIŁOŚĆ365_DEBUG__ = {
+    window.__SAMOTNIPOLSKA_DEBUG__ = {
         state: state,
         config: CONFIG,
         resetQuiz: () => {
@@ -714,8 +899,23 @@ if (typeof window !== 'undefined') {
             }
             
             console.log('🔄 Quiz reset complete!');
+        },
+        simulateClick: () => {
+            // Simulate clicking through quiz for testing
+            const options = document.querySelectorAll('.quiz-option');
+            if (options.length >= 3) {
+                options[0].click();
+                setTimeout(() => {
+                    const step2Options = document.querySelectorAll('.quiz-step[data-step="2"] .quiz-option');
+                    if (step2Options.length > 0) step2Options[0].click();
+                }, 700);
+                setTimeout(() => {
+                    const step3Options = document.querySelectorAll('.quiz-step[data-step="3"] .quiz-option');
+                    if (step3Options.length > 0) step3Options[0].click();
+                }, 1400);
+            }
         }
     };
 }
 
-console.log('🎉 script.js loaded successfully!');
+console.log('🎉 SamotniPolska.pl script loaded successfully!');
