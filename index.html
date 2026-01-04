@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SamotniPolska.pl | Portal Randkowy Nr 1 w Polsce</title>
-    <meta name="description" content="Znajdź miłość w 2026! Dołącz do największej społeczności singli w Polsce. Darmowa rejestracja + 3 miesiące Premium gratis.">
+    <meta name="description" content="Znajdź miłość w 2024! Dołącz do największej społeczności singli w Polsce. Darmowa rejestracja + 3 miesiące Premium gratis.">
     
     <!-- Fonty & Ikony -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,6 +15,23 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+    
+    <style>
+        /* Inline styles for better avatar images */
+        .profile-avatar, .profile-hot-avatar, .reviewer-avatar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: white !important;
+            font-weight: bold !important;
+            font-size: 1.5rem !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        .profile-avatar img, .profile-hot-avatar img, .reviewer-avatar img {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
     <!-- ===== PRELOADER ===== -->
@@ -69,10 +86,6 @@
                     <i class="fas fa-brain"></i>
                     <span>Quiz</span>
                 </a>
-                <a href="#register" class="nav-cta-mobile">
-                    <i class="fas fa-rocket"></i>
-                    <span>Dołącz za darmo</span>
-                </a>
             </div>
 
             <!-- CTA Button (Desktop) -->
@@ -87,7 +100,7 @@
             </button>
         </div>
 
-        <!-- Mobile Menu Overlay -->
+        <!-- Mobile Menu Overlay - NAPRAWIAM TŁO -->
         <div class="mobile-overlay">
             <div class="mobile-container">
                 <div class="mobile-header">
@@ -149,9 +162,9 @@
                 <!-- Text Column -->
                 <div class="hero-text-col">
                     <h1 class="hero-title">
-                        <span class="title-line">Znajdź miłość</span>
-                        <span class="title-gradient">swojego życia</span>
-                        <span class="title-line">w 2024 roku!</span>
+                        <span class="title-line">Twoja miłość</span>
+                        <span class="title-gradient">czeka na Ciebie!</span>
+                        <span class="title-line">Nie czekaj dłużej</span>
                     </h1>
                     
                     <p class="hero-subtitle">
@@ -159,7 +172,7 @@
                             <i class="fas fa-users"></i>
                             <span class="live-counter" id="liveUsers">284,721</span> singli online
                         </span>
-                        - nasze AI dopasowało już <strong>1,274 par</strong> w tym miesiącu!
+                        - dołącz do największej społeczności singli w Polsce!
                     </p>
 
                     <!-- Stats -->
@@ -217,29 +230,23 @@
                         <div class="phone-mockup">
                             <div class="phone-notch"></div>
                             <div class="phone-screen">
-                                <!-- Matching Animation -->
+                                <!-- Matching Animation - AVATARY Z INICJAŁAMI -->
                                 <div class="matching-animation">
                                     <div class="profile-card profile-1">
                                         <div class="profile-avatar">
-                                            <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop&crop=face" 
-                                                 alt="Anna" 
-                                                 loading="lazy">
+                                            A
                                         </div>
                                         <div class="match-badge">96%</div>
                                     </div>
                                     <div class="profile-card profile-2">
                                         <div class="profile-avatar">
-                                            <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop&crop=face" 
-                                                 alt="Michał" 
-                                                 loading="lazy">
+                                            M
                                         </div>
                                         <div class="match-badge">88%</div>
                                     </div>
                                     <div class="profile-card profile-3">
                                         <div class="profile-avatar">
-                                            <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop&crop=face" 
-                                                 alt="Kasia" 
-                                                 loading="lazy">
+                                            K
                                         </div>
                                         <div class="match-badge">91%</div>
                                     </div>
@@ -442,9 +449,7 @@
                 <div class="profile-card-hot">
                     <div class="profile-hot-header">
                         <div class="profile-hot-avatar">
-                            <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop&crop=face" 
-                                 alt="Kasia" 
-                                 loading="lazy">
+                            K
                             <span class="online-dot"></span>
                         </div>
                         <div class="profile-hot-info">
@@ -474,9 +479,7 @@
                 <div class="profile-card-hot">
                     <div class="profile-hot-header">
                         <div class="profile-hot-avatar">
-                            <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop&crop=face" 
-                                 alt="Michał" 
-                                 loading="lazy">
+                            M
                             <span class="online-dot"></span>
                         </div>
                         <div class="profile-hot-info">
@@ -506,9 +509,7 @@
                 <div class="profile-card-hot">
                     <div class="profile-hot-header">
                         <div class="profile-hot-avatar">
-                            <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop&crop=face" 
-                                 alt="Ania" 
-                                 loading="lazy">
+                            A
                             <span class="online-dot"></span>
                         </div>
                         <div class="profile-hot-info">
@@ -604,9 +605,7 @@
                     <div class="review-header">
                         <div class="reviewer-info">
                             <div class="reviewer-avatar">
-                                <img src="https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop&crop=face" 
-                                     alt="Anna" 
-                                     loading="lazy">
+                                A
                             </div>
                             <div>
                                 <h4 class="reviewer-name">Anna K.</h4>
@@ -627,9 +626,7 @@
                     <div class="review-header">
                         <div class="reviewer-info">
                             <div class="reviewer-avatar">
-                                <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop&crop=face" 
-                                     alt="Michał" 
-                                     loading="lazy">
+                                M
                             </div>
                             <div>
                                 <h4 class="reviewer-name">Michał Z.</h4>
@@ -650,9 +647,7 @@
                     <div class="review-header">
                         <div class="reviewer-info">
                             <div class="reviewer-avatar">
-                                <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop&crop=face" 
-                                     alt="Kasia" 
-                                     loading="lazy">
+                                K
                             </div>
                             <div>
                                 <h4 class="reviewer-name">Kasia W.</h4>
@@ -740,7 +735,7 @@
             
             <div class="footer-bottom">
                 <div class="copyright">
-                    <p>© 2026 SamotniPolska.pl. Portal dla dorosłych.</p>
+                    <p>© 2024 SamotniPolska.pl. Portal dla dorosłych.</p>
                 </div>
             </div>
         </div>
