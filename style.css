@@ -1,0 +1,144 @@
+/* GŁÓWNE KOLORY DLA KONWERSJI */
+:root {
+    --primary: #ff2e63; /* Czerwony przycisk - WYSOKA widoczność */
+    --secondary: #08d9d6;
+    --dark: #252a34;
+    --light: #eaeaea;
+    --success: #00b894;
+}
+
+/* COUNTDOWN - URGENCY */
+.countdown-bar {
+    background: linear-gradient(90deg, #ff2e63, #ff6b9d);
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: 700;
+    animation: pulse 2s infinite;
+}
+
+/* PULSE ANIMATION dla przycisków */
+.pulse {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 46, 99, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 46, 99, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 46, 99, 0); }
+}
+
+/* MEGA CTA BUTTON */
+.btn-mega {
+    display: block;
+    background: linear-gradient(135deg, #ff2e63, #ff165d);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    margin: 30px auto;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(255, 46, 99, 0.4);
+    transition: all 0.3s;
+}
+
+.btn-mega:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 46, 99, 0.6);
+}
+
+/* FLOATING CTA - zawsze na dole */
+.floating-cta {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.btn-floating {
+    background: var(--primary);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* MINI-FORM */
+.mini-form {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-top: 40px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    align-items: end;
+}
+
+/* FINAL CTA SECTION */
+.final-cta {
+    background: linear-gradient(135deg, var(--dark), #1a1e2d);
+    color: white;
+    padding: 80px 0;
+}
+
+.btn-mega-final {
+    background: linear-gradient(135deg, #00b894, #00a085);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-decoration: none;
+    display: block;
+    margin: 30px auto;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 184, 148, 0.4);
+}
+
+/* SOCIAL PROOF */
+.social-proof {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.proof-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 768px) {
+    .btn-mega, .btn-mega-final {
+        font-size: 1.2rem;
+        padding: 20px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .social-proof {
+        flex-direction: column;
+        align-items: center;
+    }
+}
